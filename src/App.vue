@@ -52,7 +52,7 @@
 <script setup>
 
 
-import { menuApi, orderApi } from './services/api'
+
 import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
 import MenuCard from './components/MenuCard.vue'
@@ -83,12 +83,12 @@ const filteredMenu = computed(() => {
 const cartCount = computed(() => 
   cart.value.reduce((sum, item) => sum + item.quantity, 0)
 )
-
+import { menuApi, orderApi } from './services/api'
 // ── 方法 ──
 async function fetchMenu() {
   isLoading.value = true
   try {
-    const res = await axios.get(`${API_URL}?action=getMenu`)
+    // const res = await axios.get(`${API_URL}?action=getMenu`)
     menu.value = res.data.data || []
   } catch (err) {
     menu.value = [] 

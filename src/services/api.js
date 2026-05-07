@@ -4,16 +4,14 @@ const APPS_SCRIPT_URL = import.meta.env.VITE_API_URL
 
 export const menuApi = {
   async getMenu() {
-    // ✅ 讀本地 JSON，完全不碰 Apps Script，零 CORS 問題
+    // ↓ 這裡應該是 /20260507/menu.json，不是 Apps Script URL
     const res = await fetch('/20260507/menu.json')
-    const data = await res.json()
-    return data
+    return await res.json()
   }
 }
 
 export const orderApi = {
   async submitOrder(orderData) {
-    // ✅ POST 不加 Content-Type → 簡單請求 → 不觸發預檢
     const res = await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       body: JSON.stringify({ action: 'submitOrder', order: orderData })
