@@ -52,7 +52,7 @@
 <script setup>
 
 
-
+import { menuApi, orderApi } from './services/api'
 import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
 import MenuCard from './components/MenuCard.vue'
