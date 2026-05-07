@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "招牌牛肉麵", "category": "主食", "price": 180, "image": "🍜", "description": "精燉8小時湯頭", "available": true },
+  { "id": 2, "name": "珍珠奶茶",   "category": "飲料", "price": 65,  "image": "🧋", "description": "台灣特色飲品",   "available": true },
+  { "id": 3, "name": "滷肉飯",     "category": "主食", "price": 80,  "image": "🍚", "description": "古早味滷肉",     "available": true },
+  { "id": 4, "name": "水果茶",     "category": "飲料", "price": 75,  "image": "🍵", "description": "新鮮水果調製",   "available": true },
+  { "id": 5, "name": "蛋餅",       "category": "早餐", "price": 45,  "image": "🥚", "description": "現做手工蛋餅",   "available": true }
+]

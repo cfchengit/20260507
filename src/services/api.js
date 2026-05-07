@@ -1,23 +1,23 @@
 // src/services/api.js
 
-const API_URL = import.meta.env.VITE_API_URL
+const APPS_SCRIPT_URL = import.meta.env.VITE_API_URL
 
 export const menuApi = {
   async getMenu() {
-    const res = await fetch(`${API_URL}?action=getMenu`)
+    // ✅ 讀本地 JSON，完全不碰 Apps Script，零 CORS 問題
+    const res = await fetch('/20260507/menu.json')
     const data = await res.json()
-    return data.data || []
+    return data
   }
 }
 
 export const orderApi = {
   async submitOrder(orderData) {
-    const res = await fetch(API_URL, {
+    // ✅ POST 不加 Content-Type → 簡單請求 → 不觸發預檢
+    const res = await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       body: JSON.stringify({ action: 'submitOrder', order: orderData })
-      // 不加 Content-Type header → 不觸發 CORS 預檢
     })
-    const data = await res.json()
-    return data
+    return await res.json()
   }
 }
